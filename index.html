@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Freedom To Function 2025 — Divine Breakthrough | Prophetic Insights Conference</title>
-<meta name="description" content="Freedom to Function 2025: Divine Breakthrough. A prophetic insights conference across the UK — Manchester, London, Nottingham, Preston. July–August 2025.">
+<title>Freedom To Function 2026 | Prophetic Insights Conference · UK Tour</title>
+<meta name="description" content="Freedom to Function 2026. A prophetic insights conference across the UK — London, Manchester, Oldham, Erith and Skelmersdale. 13–29 September 2026.">
 <meta name="theme-color" content="#150c12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,7 +122,7 @@
   .tour-head .sub{font-family:var(--body);color:rgba(248,247,238,.6);font-size:.96rem;max-width:44ch;}
 
   .stop{
-    display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:start;
+    display:grid;grid-template-columns:auto 1fr auto;gap:6px 16px;align-items:start;
     padding:22px 0;border-top:1px solid rgba(255,255,255,.12);
   }
   .stop:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
@@ -138,6 +138,41 @@
     color:#fff;background:var(--pink);border:0;padding:14px 20px;cursor:pointer;transition:transform .2s;
   }
   .stop .go:active{transform:translateY(1px);}
+
+
+  /* ---------------- HOST FACE ON TOUR CARDS ---------------- */
+  .stop .face{
+    grid-column:3;grid-row:1 / span 3;align-self:start;
+    width:66px;height:66px;border-radius:50%;object-fit:cover;
+    border:2px solid rgba(255,102,196,.55);margin-top:6px;
+    background:var(--plum);
+  }
+  /* ---------------- PRAYER ---------------- */
+  .prayer{padding:66px 0;background:linear-gradient(180deg,var(--plum) 0%,#1b1019 100%);}
+  .prayer-head{margin-bottom:30px;}
+  .prayer-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.4rem,12vw,5.4rem);margin:6px 0 14px;}
+  .prayer-head .sub{font-family:var(--body);color:rgba(248,247,238,.62);font-size:.96rem;max-width:46ch;}
+  .pnight{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.12);}
+  .pnight:last-of-type{border-bottom:1px solid rgba(255,255,255,.12);}
+  .pnight .pd{grid-column:1;font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--gold);padding-top:3px;min-width:78px;}
+  .pnight .pl{grid-column:2;font-family:var(--body);font-size:.98rem;color:rgba(248,247,238,.9);}
+  .pnote{margin-top:26px;font-family:var(--body);font-size:.9rem;color:rgba(248,247,238,.6);max-width:52ch;}
+  .pnote strong{color:var(--cream);font-weight:600;}
+  /* ---------------- INTERCESSION ---------------- */
+  .team{padding:66px 0 74px;}
+  .team-head{text-align:center;margin-bottom:34px;}
+  .team-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.2rem,11vw,4.8rem);margin:6px 0 0;}
+  .team-grid{display:grid;gap:22px;max-width:920px;margin:0 auto;}
+  .tcard{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:20px;border:1px solid rgba(232,195,126,.22);background:rgba(255,255,255,.02);}
+  .tcard img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,102,196,.5);}
+  .tcard h3{font-family:var(--body);font-weight:600;font-size:1.05rem;color:var(--cream);margin:0 0 4px;}
+  .tcard .r{font-family:var(--body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;color:var(--pink);margin:0 0 6px;}
+  .tcard .m{font-family:var(--body);font-size:.88rem;color:rgba(248,247,238,.66);margin:0;}
+  @media(min-width:820px){
+    .stop .face{width:104px;height:104px;}
+    .team-grid{grid-template-columns:1fr 1fr;}
+    .pnight .pd{min-width:150px;font-size:.8rem;}
+  }
 
   /* ---------------- SPEAKERS ---------------- */
   .speakers{padding:66px 0;background:linear-gradient(180deg,#1b1018 0%, var(--ink) 100%);}
@@ -277,7 +312,7 @@
       <ul class="nav-links">
         <li><a href="#top" onclick="cn()">Home</a></li>
         <li><a href="#tour" onclick="cn()">Tour Dates</a></li>
-        <li><a href="#speakers" onclick="cn()">Speakers</a></li>
+        <li><a href="#speakers" onclick="cn()">Speakers</a></li><li><a href="#prayer" onclick="cn()">Prayer</a></li>
       </ul>
       <button class="nav-cta" onclick="cn();openReg()">Register Free</button>
     </nav>
@@ -288,11 +323,11 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="kicker">Freedom To Function 2025 &nbsp;·&nbsp; UK Tour</p>
+      <p class="kicker">Freedom To Function 2026 &nbsp;·&nbsp; UK Tour</p>
       <h1 class="display">Experience the Power of the <span class="pink">Prophetic</span></h1>
-      <p class="lead">Divine Breakthrough is coming to the nation — a prophetic insights conference to unlock destinies, awaken identity, and stir revival.</p>
+      <p class="lead">Ten gatherings across the nation this September — a prophetic insights conference to unlock destinies, awaken identity, and stir revival.</p>
       <div class="cities">
-        <span>Manchester</span><span>London</span><span>Nottingham</span><span>Preston</span>
+        <span>London</span><span>Manchester</span><span>Oldham</span><span>Erith</span><span>Skelmersdale</span>
       </div>
       <div class="hero-actions">
         <button class="cta" onclick="openReg()">Register For Free</button>
@@ -300,7 +335,7 @@
       </div>
     </div>
     <div class="hero-art">
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/6851545aa1b9608d4aff4dde.png" alt="Divine Breakthrough — Prophetic Insights Conference 2025" fetchpriority="high">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/6851545aa1b9608d4aff4dde.png" alt="Freedom To Function — Prophetic Insights Conference 2026" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -309,14 +344,14 @@
 <section class="statement">
   <div class="wrap stmt-grid">
     <div class="stmt-art reveal">
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/685d17b525f2727c1773bd51.png" alt="Divine Breakthrough" loading="lazy">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/685d17b525f2727c1773bd51.png" alt="Freedom To Function 2026" loading="lazy">
     </div>
     <div class="stmt reveal">
       <p class="kicker">This is more than a conference</p>
       <h2 class="display">It's a Divine <span class="pink">Appointment</span></h2>
-      <p><strong>Freedom to Function 2025: Divine Breakthrough</strong> is happening across the UK this July and August.</p>
+      <p><strong>Freedom to Function 2026</strong> is happening across the UK from 13 to 29 September.</p>
       <p>International speakers Rev. Joseph Lam and Prophetess Lydia Chee return from Malaysia with a powerful prophetic mandate to unlock destinies, awaken spiritual identity, and stir revival across the nation.</p>
-      <p>This year is all about breaking limitations and stepping boldly into your God-given purpose. Come expectant. Come ready.</p>
+      <p>Ten gatherings, hosted by churches from London to Skelmersdale. Every one of them free. Come expectant. Come ready.</p>
     </div>
   </div>
 </section>
@@ -332,7 +367,7 @@
   <div class="wrap">
     <div class="tour-head reveal">
       <div>
-        <p class="kicker">Nine Nights · Four Cities</p>
+        <p class="kicker">Ten Gatherings · September 2026</p>
         <h2 class="display">The <span class="pink">Tour</span></h2>
       </div>
       <p class="sub">One move of God, city to city. Every gathering is free — find the stop nearest you and register.</p>
@@ -341,57 +376,73 @@
     <div class="stops">
       <div class="stop reveal">
         <div class="num">01</div>
-        <div class="city">Manchester<small>SOL House · 117 Fairfield Street, M12 6EL</small></div>
-        <div class="meta"><span class="date">Mon 28 Jul · 7:30 PM</span><br>Upper Room Ministers Forum<span class="host">Theme: An Altar of Intercession</span></div>
+        <div class="city">London<small>All Nations Christian Centre · 15 York Hill, West Norwood, SE27 0BU</small></div>
+        <div class="meta"><span class="date">Sun 13 Sept · Time TBC</span><br>Bishop David &amp; Rev. Judith Oronsaye</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_oronsaye-david-judith_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">02</div>
-        <div class="city">Manchester<small>SOL House · 117 Fairfield Street, M12 6EL</small></div>
-        <div class="meta"><span class="date">Tue 29 Jul · 6:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession (continued)</span></div>
+        <div class="city">Oldham<small>Breakforth Evangelical Church &amp; Ministry · 8–9 Eldon Precinct, OL8 1JP</small></div>
+        <div class="meta"><span class="date">Wed 16 Sept · Time TBC</span><br>Host to be confirmed</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/host_tbc_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">03</div>
-        <div class="city">Salford<small>Good News Assembly · Langley Road South</small></div>
-        <div class="meta"><span class="date">Wed 30 Jul · 7:30 PM</span><br>Hosted by Pastor Jama</div>
+        <div class="city">London<small>Kingdom Harvest Church · Venue details to follow</small></div>
+        <div class="meta"><span class="date">Fri 18 Sept · 7:00 PM</span><br>Hosted by Pst. Toyin Komolafe</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_komolafe-toyin_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">04</div>
-        <div class="city">London<small>New Hope Christian Church · 14 Rectory Road</small></div>
-        <div class="meta"><span class="date">Fri 1 Aug · 6:30 PM</span><br>Hosted by Rev Mrs Abigail Olaleye</div>
+        <div class="city">Erith<small>Slade Green &amp; Howbury Community Centre · Chrome Road, DA8 2EL</small></div>
+        <div class="meta"><span class="date">Sun 20 Sept · 10:30 AM</span><br>Hosted by Pst. Toyin Komolafe</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_komolafe-toyin_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">05</div>
-        <div class="city">London<small>Tabernacle of Praise · Elephant &amp; Castle, SE1 6EZ</small></div>
-        <div class="meta"><span class="date">Sat 2 Aug · 10:30 AM</span><br>Hosted by Pastor Shola John</div>
+        <div class="city">Manchester<small>115 Fairfield Street, M12 6EL</small></div>
+        <div class="meta"><span class="date">Mon 21 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession</span></div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_upper-room-ministers-forum_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">06</div>
-        <div class="city">London<small>All Nations Christian Centre · West Norwood, SE27 0BU</small></div>
-        <div class="meta"><span class="date">Sun 3 Aug · 10:00 AM</span><br>Bishop David &amp; Rev. Judith Oransaye</div>
+        <div class="city">Manchester<small>115 Fairfield Street, M12 6EL</small></div>
+        <div class="meta"><span class="date">Tue 22 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession (continued)</span></div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_upper-room-ministers-forum_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">07</div>
-        <div class="city">Nottingham<small>Christ Citadel Intl · 20 St Anns Well Road, NG3 1EJ</small></div>
-        <div class="meta"><span class="date">Sat 9 Aug · 1:00 PM</span><br>Bishop Dr. J Ansa &amp; Rev. Dr. J Ansa</div>
+        <div class="city">London<small>New Hope Christian Church · 14 Rectory Road, N16 7QS</small></div>
+        <div class="meta"><span class="date">Fri 25 Sept · 7:00 PM</span><br>Hosted by Rev. Abigail Olaleye</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_olaleye-abigail_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">08</div>
-        <div class="city">Skelmersdale<small>Divine Solution Church · Hope High School, WN8 9DP</small></div>
-        <div class="meta"><span class="date">Sun 10 Aug · 10:00 AM</span><br>Pastor &amp; Pastor Mrs Adegbenro</div>
+        <div class="city">Skelmersdale<small>Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</small></div>
+        <div class="meta"><span class="date">Sat 26 Sept · 5:00 PM</span><br>Hosted by Pastor Tony Adegbenro</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_adegbenro-tony_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">09</div>
-        <div class="city">Manchester<small>Calvary Hephzibah · 74 Carmoor Road, M13 0FB</small></div>
-        <div class="meta"><span class="date">Mon 11 Aug · 6:30 PM</span><br>Ministry Night<span class="host">Ps Lydia Chee &amp; Ps Joseph Lam</span></div>
+        <div class="city">Skelmersdale<small>Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</small></div>
+        <div class="meta"><span class="date">Sun 27 Sept · 10:00 AM</span><br>Hosted by Pastor Tony Adegbenro</div>
         <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_adegbenro-tony_portrait_v1.jpg" alt="" loading="lazy">
+      </div>
+      <div class="stop reveal">
+        <div class="num">10</div>
+        <div class="city">Manchester<small>Calvary Hephzibah · The West Indian Community Centre, 74 Carmoor Road, M13 0FB</small></div>
+        <div class="meta"><span class="date">Tue 29 Sept · 7:00 PM</span><br>Hosted by Pastor Shade Olatoye<span class="host">Ministry Night</span></div>
+        <button class="go" onclick="openReg()">Register</button>
+        <img class="face" src="images/speaker_olatoye-shade_portrait_v1.jpg" alt="" loading="lazy">
       </div>
     </div>
   </div>
@@ -443,9 +494,56 @@
   </div>
 </section>
 
+<!-- PRE-CONFERENCE PRAYER -->
+<section class="prayer" id="prayer">
+  <div class="wrap">
+    <div class="prayer-head reveal">
+      <p class="kicker">Every Tuesday · 8:30–9:00 PM</p>
+      <h2 class="display">Pre-Conference <span class="pink">Prayer</span></h2>
+      <p class="sub">Five Tuesday evenings of prayer ahead of the tour. Each leader takes a fifteen-minute slot. All are welcome to join.</p>
+    </div>
+
+    <div class="pnight reveal"><div class="pd">11 August</div><div class="pl">Pastor Vicky Jaehnert &amp; Bishop Henry Emmanuel</div></div>
+    <div class="pnight reveal"><div class="pd">18 August</div><div class="pl">Pastor Shola &amp; Sister Dorothy</div></div>
+    <div class="pnight reveal"><div class="pd">25 August</div><div class="pl">Pastor Odularu &amp; Apostle Tabeth</div></div>
+    <div class="pnight reveal"><div class="pd">1 September</div><div class="pl">Prophetess Doris &amp; Dr. Gbenga Dimu</div></div>
+    <div class="pnight reveal"><div class="pd">8 September</div><div class="pl">Pst. Toyin Komolafe &amp; Pastor Abbie Olaleye</div></div>
+
+    <p class="pnote reveal"><strong>Joining us to pray?</strong> The meeting link is sent out shortly before each session. Get in touch and we will make sure it reaches you.</p>
+  </div>
+</section>
+
+<!-- INTERCESSION & ADMIN -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="team-head reveal">
+      <p class="kicker">Holding the ground</p>
+      <h2 class="display">Intercession <span class="pink">&amp; Admin</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="tcard reveal">
+        <img src="images/speaker_jaehnert-victoria_portrait_v1.jpg" alt="Pastor Vicky Jaehnert" loading="lazy">
+        <div>
+          <p class="r">Intercession &amp; Admin</p>
+          <h3>Pastor Vicky Jaehnert</h3>
+          <p class="m">Ministry of the Living Jesus · Manchester</p>
+        </div>
+      </div>
+      <div class="tcard reveal">
+        <img src="images/speaker_okoh-blessing_portrait_v1.jpg" alt="Apostle Blessing Okoh" loading="lazy">
+        <div>
+          <p class="r">Intercession</p>
+          <h3>Apostle Blessing Okoh</h3>
+          <p class="m">God's Children Army Ministry · Women of Light Ministry</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CLOSING CTA -->
 <section class="close">
-  <p class="k">July – August 2025 · Free Entry</p>
+  <p class="k">13 – 29 September 2026 · Free Entry</p>
   <h2 class="display">Your Breakthrough Has an Address</h2>
   <button class="cta" onclick="openReg()">Claim Your Free Seat</button>
   <p class="verse">"And ye shall know the truth, and the truth shall make you free."</p>
@@ -458,6 +556,7 @@
     <a href="#top">Home</a>
     <a href="#tour">Tour Dates</a>
     <a href="#speakers">Speakers</a>
+    <a href="#prayer">Prayer</a>
     <a href="#" onclick="openReg();return false;">Register</a>
   </div>
   <p>&copy; Freedom To Function · All Rights Reserved.</p>
@@ -469,7 +568,7 @@
   <div class="modal">
     <button class="close-x" aria-label="Close" onclick="closeReg()">&times;</button>
     <div id="regForm">
-      <p class="k">Divine Breakthrough 2025</p>
+      <p class="k">Freedom To Function 2026</p>
       <h2>Reserve Your Seat</h2>
       <label for="fn">Full Name</label>
       <input id="fn" type="text" autocomplete="name" placeholder="Your name">
@@ -481,7 +580,7 @@
     </div>
     <div class="thankyou" id="regThanks">
       <p><strong>Thank you for registering! &#128591;</strong></p>
-      <p>We've received your details for the <strong>Divine Breakthrough: Prophetic Insights Conference</strong>. We're so glad you'll be joining us — we believe God has something powerful in store for you.</p>
+      <p>We've received your details for the <strong>Freedom to Function: Prophetic Insights Conference</strong>. We're so glad you'll be joining us — we believe God has something powerful in store for you.</p>
       <p>Keep an eye on your inbox for updates. God bless you richly!<br>— <em>Freedom to Function Team</em></p>
     </div>
   </div>
