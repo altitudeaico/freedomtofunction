@@ -147,7 +147,7 @@
   /* ---------------- SCRIPTURE ---------------- */
   .scripture{position:relative;text-align:center;padding:48px var(--pad);background:linear-gradient(180deg, var(--plum) 0%, #1c1019 100%);overflow:hidden;}
   .scripture::before{content:"\201C";position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:4.5rem;color:rgba(255,102,196,.09);line-height:1;pointer-events:none;}
-  .scripture blockquote{position:relative;max-width:none;margin:0 auto;font-family:var(--display);text-transform:uppercase;line-height:1.04;font-size:clamp(1.25rem,5.6vw,4.2rem);color:var(--cream);}
+  .scripture blockquote{position:relative;max-width:none;margin:0 auto;font-family:var(--display);text-transform:uppercase;line-height:1.12;font-size:clamp(1rem,4.6vw,3.6rem);color:var(--cream);}
   .scripture .ref{position:relative;margin:18px 0 0;font-family:var(--body);letter-spacing:.3em;text-transform:uppercase;font-size:.74rem;color:var(--gold);}
 
   /* ---------------- TOUR (stacked cards on mobile) ---------------- */
@@ -315,7 +315,7 @@
     .close{padding:120px var(--pad);}
     /* px, not ch: a font-relative cap scales with the text, so auto-fit could never converge */
     .close h2{max-width:760px;}
-    .scripture blockquote{max-width:620px;}
+    .scripture blockquote{max-width:860px;}
 
     footer{padding:66px var(--pad) 50px;}
     footer .fnav a{padding:0;}
@@ -698,7 +698,7 @@
      size that fits one can overflow the other. Rather than hard-code sizes for
      one font, shrink any display heading that genuinely does not fit its box.
      Runs after webfonts settle and on resize/orientation change. */
-  var FIT='.display,.stop .city,.scripture blockquote,.sp h3,.tcard h3';
+  var FIT='.display,.stop .city,.sp h3,.tcard h3';
   function fitOne(el){
     el.style.fontSize='';
     /* Measure with word-breaking off, so a too-long word reports as overflow and
@@ -713,7 +713,30 @@
     }
     el.style.overflowWrap=prev;
   }
-  function fitAll(){document.querySelectorAll(FIT).forEach(fitOne);}
+  /* The scripture quote is set in the wide display face, so on a phone it drops
+     to about two words a line and becomes a wall of text. Fixed sizes cannot fix
+     that without knowing the face's metrics, so shrink it until it both fits the
+     width AND sits within a sensible line count. */
+  function fitQuote(){
+    var el=document.querySelector('.scripture blockquote');
+    if(!el){return;}
+    var maxLines=window.innerWidth<700?4:3;
+    el.style.fontSize='';
+    var prev=el.style.overflowWrap;
+    el.style.overflowWrap='normal';
+    var size=parseFloat(getComputedStyle(el).fontSize),guard=0;
+    function lineCount(){
+      var lh=parseFloat(getComputedStyle(el).lineHeight)||size;
+      return Math.round(el.getBoundingClientRect().height/lh);
+    }
+    while((el.scrollWidth>el.clientWidth+1||lineCount()>maxLines)&&size>12&&guard++<80){
+      size-=Math.max(1,size*.05);
+      el.style.fontSize=size+'px';
+    }
+    el.style.overflowWrap=prev;
+  }
+
+  function fitAll(){document.querySelectorAll(FIT).forEach(fitOne);fitQuote();}
   fitAll();
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitAll);}
   window.addEventListener('load',fitAll);
