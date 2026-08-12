@@ -49,7 +49,8 @@
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
 
   .kicker{font-family:var(--body);font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:.66rem;color:var(--gold);margin:0 0 16px;}
-  .display{font-family:var(--display);text-transform:uppercase;line-height:.94;font-weight:400;margin:0;}
+  .display{font-family:var(--display);text-transform:uppercase;line-height:.94;font-weight:400;margin:0;text-wrap:balance;}
+  section[id]{scroll-margin-top:72px;}   /* keep anchored titles clear of the sticky header */
   .pink{color:var(--pink);}
 
   /* Buttons: full-width, large tap target on mobile */
@@ -68,10 +69,16 @@
   .reveal.in{opacity:1;transform:none;}
 
   /* ---------------- NAV (mobile: logo + hamburger + drawer) ---------------- */
-  header.nav{position:sticky;top:0;z-index:80;background:rgba(21,12,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,195,126,.16);}
+  /* NOTE: backdrop-filter lives on a ::before pseudo, NOT the header itself —
+     backdrop-filter on the header would make it the containing block for the
+     position:fixed drawer, trapping the mobile menu inside the 72px header bar. */
+  header.nav{position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(232,195,126,.16);}
+  header.nav::before{content:"";position:absolute;inset:0;background:rgba(21,12,18,.92);backdrop-filter:blur(10px);z-index:-1;}
   .nav-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--pad);max-width:var(--maxw);margin:0 auto;}
   .nav-logo img{height:42px;width:auto;}
   .nav-toggle{display:flex;align-items:center;justify-content:center;width:var(--tap);height:var(--tap);margin-right:-10px;background:none;border:0;color:var(--cream);font-size:26px;cursor:pointer;}
+  .nav-reg{margin-left:auto;background:var(--pink);color:#fff;border:0;border-radius:2px;font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;padding:10px 14px;min-height:38px;cursor:pointer;}
+  .logo-fb{display:none;font-family:var(--display);text-transform:uppercase;font-size:.95rem;letter-spacing:.04em;color:var(--cream);line-height:1.1;}
   .nav-r{
     position:fixed;inset:0;z-index:70;background:rgba(21,12,18,.98);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
@@ -84,56 +91,58 @@
   .nav-cta{width:100%;max-width:280px;min-height:var(--tap);font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;background:var(--pink);color:#fff;border:0;padding:14px;cursor:pointer;}
 
   /* ---------------- HERO ---------------- */
-  .hero{position:relative;overflow:hidden;padding:56px 0 48px;}
+  .hero{position:relative;overflow:hidden;padding:40px 0 52px;}
   .hero::before{content:"";position:absolute;inset:0;background:
       radial-gradient(70% 45% at 70% 22%, rgba(255,102,196,.30), transparent 60%),
       radial-gradient(60% 45% at 15% 90%, rgba(229,56,143,.20), transparent 60%),
       linear-gradient(180deg,#1c1017 0%, var(--ink) 62%);}
   .hero::after{content:"";position:absolute;inset:0;background-image:url('https://images.leadconnectorhq.com/image/f_webp/q_80/r_768/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/684d6d4ef5cd585f3abbf5ea.jpeg');background-size:cover;background-position:center;opacity:.12;mix-blend-mode:luminosity;}
-  .hero-grid{position:relative;z-index:2;display:grid;gap:34px;align-items:center;}
-  .hero h1{font-family:var(--display);text-transform:uppercase;line-height:.92;font-size:clamp(2.7rem,11vw,7rem);margin:0 0 18px;}
-  .hero .lead{font-size:1.02rem;color:rgba(248,247,238,.82);margin:0 0 22px;max-width:34ch;}
-  .hero .cities{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin:0 0 26px;}
+  .hero-grid{position:relative;z-index:2;display:grid;gap:30px;align-items:center;}
+  .hero h1{font-family:var(--display);text-transform:uppercase;line-height:.92;font-size:clamp(2.5rem,10.5vw,7rem);margin:0 0 14px;text-wrap:balance;}
+  .hero .datechip{display:inline-block;font-family:var(--body);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--gold);border:1px solid rgba(232,195,126,.45);padding:8px 14px;margin:0 0 16px;}
+  .hero .lead{font-size:1rem;color:rgba(248,247,238,.82);margin:0 0 18px;max-width:34ch;}
+  .hero .cities{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin:0 0 24px;}
   .hero .cities span{position:relative;}
   .hero .cities span:not(:last-child)::after{content:"·";position:absolute;right:-11px;color:rgba(232,195,126,.5);}
   .hero-actions{display:flex;flex-direction:column;gap:12px;}
-  .hero-art{position:relative;order:-1;}          /* poster first on mobile */
+  .hero-art{position:relative;max-width:320px;margin:0 auto;width:100%;}   /* copy leads on mobile; poster supports below */
   .hero-art img{width:100%;border-radius:6px;filter:drop-shadow(0 26px 50px rgba(0,0,0,.55));}
   .hero-art::before{content:"";position:absolute;inset:-6%;background:radial-gradient(circle at 50% 45%, rgba(255,102,196,.32), transparent 62%);z-index:-1;filter:blur(18px);}
 
   /* ---------------- STATEMENT ---------------- */
-  .statement{padding:64px 0;border-top:1px solid rgba(255,255,255,.05);}
-  .stmt-grid{display:grid;gap:34px;align-items:center;}
+  .statement{padding:56px 0;border-top:1px solid rgba(255,255,255,.05);}
+  .stmt-grid{display:grid;gap:30px;align-items:center;}
+  .stmt-art{order:2;max-width:340px;margin:0 auto;width:100%;}   /* text first on mobile */
   .stmt-art img{width:100%;border-radius:6px;box-shadow:0 30px 60px -28px rgba(0,0,0,.7);}
   .stmt h2{font-family:var(--display);text-transform:uppercase;line-height:.94;font-size:clamp(2.1rem,8vw,4.6rem);margin:12px 0 20px;}
   .stmt p{font-size:1.02rem;color:rgba(248,247,238,.82);margin:0 0 16px;}
   .stmt p strong{color:#fff;font-weight:600;}
 
   /* ---------------- SCRIPTURE ---------------- */
-  .scripture{position:relative;text-align:center;padding:74px var(--pad);background:linear-gradient(180deg, var(--plum) 0%, #1c1019 100%);overflow:hidden;}
+  .scripture{position:relative;text-align:center;padding:62px var(--pad);background:linear-gradient(180deg, var(--plum) 0%, #1c1019 100%);overflow:hidden;}
   .scripture::before{content:"\201C";position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:12rem;color:rgba(255,102,196,.13);line-height:1;pointer-events:none;}
   .scripture blockquote{position:relative;max-width:15ch;margin:0 auto;font-family:var(--display);text-transform:uppercase;line-height:1;font-size:clamp(2rem,9vw,5rem);color:var(--cream);}
   .scripture .ref{position:relative;margin:22px 0 0;font-family:var(--body);letter-spacing:.3em;text-transform:uppercase;font-size:.74rem;color:var(--gold);}
 
   /* ---------------- TOUR (stacked cards on mobile) ---------------- */
-  .tour{padding:66px 0 76px;}
-  .tour-head{margin-bottom:34px;}
+  .tour{padding:56px 0 64px;}
+  .tour-head{margin-bottom:26px;}
   .tour-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.6rem,13vw,6rem);margin:6px 0 14px;}
   .tour-head .sub{font-family:var(--body);color:rgba(248,247,238,.6);font-size:.96rem;max-width:44ch;}
 
   .stop{
-    display:grid;grid-template-columns:auto 1fr auto;gap:6px 14px;align-items:start;
+    display:grid;grid-template-columns:auto 1fr 56px;gap:2px 12px;align-items:center;
     padding:18px 0;border-top:1px solid rgba(255,255,255,.12);
   }
   .stop:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
-  .stop .num{grid-row:1;font-family:var(--display);font-size:1rem;color:var(--pink);opacity:.8;padding-top:6px;}
-  .stop .city{grid-column:2;font-family:var(--display);text-transform:uppercase;line-height:.98;font-size:clamp(1.7rem,7vw,3.1rem);color:var(--cream);}
-  .stop .city small{display:block;font-family:var(--body);font-weight:500;letter-spacing:.02em;text-transform:none;font-size:.8rem;color:rgba(248,247,238,.6);margin-top:6px;line-height:1.4;}
-  .stop .meta{grid-column:2;font-family:var(--body);font-size:.9rem;color:rgba(248,247,238,.82);margin-top:2px;}
+  .stop .num{grid-column:1;grid-row:1;font-family:var(--display);font-size:.9rem;color:var(--pink);opacity:.8;}
+  .stop .city{grid-column:2;grid-row:1;font-family:var(--display);text-transform:uppercase;line-height:.98;font-size:clamp(1.55rem,6.4vw,3.1rem);color:var(--cream);}
+  .stop .meta{grid-column:2 / -1;grid-row:2;font-family:var(--body);font-size:.9rem;color:rgba(248,247,238,.82);margin-top:6px;}
   .stop .meta .date{display:inline-block;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);font-size:.8rem;margin-bottom:4px;}
   .stop .meta .host{display:block;color:rgba(248,247,238,.55);font-size:.84rem;margin-top:3px;}
+  .stop .meta .venue{display:block;font-weight:500;font-size:.82rem;color:rgba(248,247,238,.55);margin-top:4px;line-height:1.45;}
   .stop .go{
-    grid-column:2;justify-self:start;margin-top:12px;min-height:44px;
+    grid-column:2;grid-row:3;justify-self:start;margin-top:12px;min-height:44px;
     font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;
     color:#fff;background:var(--pink);border:0;border-radius:2px;padding:11px 26px;cursor:pointer;transition:transform .2s;
   }
@@ -142,14 +151,14 @@
 
   /* ---------------- HOST FACE ON TOUR CARDS ---------------- */
   .stop .face{
-    grid-column:3;grid-row:1 / span 3;align-self:start;
-    width:66px;height:66px;border-radius:50%;object-fit:cover;
-    border:2px solid rgba(255,102,196,.55);margin-top:6px;
+    grid-column:3;grid-row:1;
+    width:56px;height:56px;border-radius:50%;object-fit:cover;
+    border:2px solid rgba(255,102,196,.55);
     background:var(--plum);
   }
   /* ---------------- PRAYER ---------------- */
-  .prayer{padding:66px 0;background:linear-gradient(180deg,var(--plum) 0%,#1b1019 100%);}
-  .prayer-head{margin-bottom:30px;}
+  .prayer{padding:56px 0;background:linear-gradient(180deg,var(--plum) 0%,#1b1019 100%);}
+  .prayer-head{margin-bottom:26px;}
   .prayer-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.4rem,12vw,5.4rem);margin:6px 0 14px;}
   .prayer-head .sub{font-family:var(--body);color:rgba(248,247,238,.62);font-size:.96rem;max-width:46ch;}
   .pnight{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.12);}
@@ -159,8 +168,8 @@
   .pnote{margin-top:26px;font-family:var(--body);font-size:.9rem;color:rgba(248,247,238,.6);max-width:52ch;}
   .pnote strong{color:var(--cream);font-weight:600;}
   /* ---------------- INTERCESSION ---------------- */
-  .team{padding:66px 0 74px;}
-  .team-head{text-align:center;margin-bottom:34px;}
+  .team{padding:56px 0 64px;}
+  .team-head{text-align:center;margin-bottom:28px;}
   .team-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.2rem,11vw,4.8rem);margin:6px 0 0;}
   .team-grid{display:grid;gap:22px;max-width:920px;margin:0 auto;}
   .tcard{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:20px;border:1px solid rgba(232,195,126,.22);background:rgba(255,255,255,.02);}
@@ -169,18 +178,19 @@
   .tcard .r{font-family:var(--body);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.66rem;color:var(--pink);margin:0 0 6px;}
   .tcard .m{font-family:var(--body);font-size:.88rem;color:rgba(248,247,238,.66);margin:0;}
   @media(min-width:820px){
-    .stop .face{width:104px;height:104px;}
     .team-grid{grid-template-columns:1fr 1fr;}
     .pnight .pd{min-width:150px;font-size:.8rem;}
+    .prayer{padding:84px 0;}
+    .team{padding:84px 0 92px;}
   }
 
   /* ---------------- SPEAKERS ---------------- */
-  .speakers{padding:66px 0;background:linear-gradient(180deg,#1b1018 0%, var(--ink) 100%);}
-  .sp-head{text-align:center;margin-bottom:40px;}
+  .speakers{padding:56px 0;background:linear-gradient(180deg,#1b1018 0%, var(--ink) 100%);}
+  .sp-head{text-align:center;margin-bottom:32px;}
   .sp-head h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2.6rem,13vw,6rem);margin:6px 0 0;}
-  .sp{display:grid;gap:26px;align-items:center;max-width:1040px;margin:0 auto 54px;}
+  .sp{display:grid;gap:22px;align-items:center;max-width:1040px;margin:0 auto 46px;}
   .sp:last-child{margin-bottom:0;}
-  .sp-photo{position:relative;max-width:340px;margin:0 auto;}
+  .sp-photo{position:relative;max-width:280px;margin:0 auto;}
   .sp-photo img{width:100%;border-radius:6px;box-shadow:0 30px 60px -28px rgba(0,0,0,.75);}
   .sp h3{font-family:var(--display);text-transform:uppercase;line-height:1;font-size:clamp(1.7rem,6vw,2.8rem);color:var(--cream);margin:0 0 6px;}
   .sp .role{font-family:var(--body);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--pink);margin:0 0 16px;}
@@ -194,7 +204,7 @@
   .sp details .more p{font-size:.94rem;color:rgba(248,247,238,.7);}
 
   /* ---------------- CLOSING CTA ---------------- */
-  .close{position:relative;text-align:center;padding:80px var(--pad);background:linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);color:#fff;overflow:hidden;}
+  .close{position:relative;text-align:center;padding:64px var(--pad);background:linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);color:#fff;overflow:hidden;}
   .close::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 50% 0%, rgba(255,255,255,.22), transparent 60%);}
   .close .k{position:relative;font-family:var(--body);font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:.68rem;color:rgba(255,255,255,.88);margin:0 0 16px;}
   .close h2{position:relative;font-family:var(--display);text-transform:uppercase;line-height:.94;font-size:clamp(2.4rem,10vw,6.2rem);margin:0 auto 28px;max-width:16ch;}
@@ -235,17 +245,19 @@
     .nav-links a{font-size:.82rem;letter-spacing:.16em;padding:6px 0;opacity:.85;}
     .nav-links a:hover{opacity:1;color:var(--pink);}
     .nav-cta{width:auto;max-width:none;font-size:.76rem;padding:11px 24px;min-height:0;}
+    .nav-reg{display:none;}
 
     .cta{display:inline-block;width:auto;}
     .hero-actions{flex-direction:row;flex-wrap:wrap;align-items:center;}
 
     .hero{padding:80px 0 64px;}
     .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px;}
-    .hero-art{order:0;}
+    .hero-art{max-width:none;margin:0;}
     .hero .lead{max-width:32ch;}
 
     .statement{padding:96px 0;}
     .stmt-grid{grid-template-columns:.9fr 1.1fr;gap:56px;}
+    .stmt-art{order:-1;max-width:none;margin:0;}
 
     .scripture{padding:110px var(--pad);}
     .scripture::before{font-size:18rem;top:-20px;}
@@ -253,16 +265,17 @@
     .tour{padding:100px 0 110px;}
     .tour-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:52px;}
     .tour-head h2{margin:8px 0 0;}
-    .stop{grid-template-columns:56px 1.6fr 1fr auto;gap:26px;align-items:center;padding:28px 4px;position:relative;transition:padding .3s ease;}
+    .stop{grid-template-columns:44px 72px 1.35fr 1.25fr auto;gap:26px;align-items:center;padding:26px 4px;position:relative;transition:padding .3s ease;}
     .stop::after{content:"";position:absolute;left:-24px;right:-24px;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,102,196,.10),transparent 70%);opacity:0;transition:opacity .3s ease;pointer-events:none;}
     .stop:hover::after{opacity:1;}
     .stop:hover{padding-left:14px;}
     .stop>*{position:relative;}
-    .stop .num,.stop .city,.stop .meta,.stop .go{grid-row:auto;}
-    .stop .num{grid-column:auto;padding-top:0;}
-    .stop .city{grid-column:auto;}
-    .stop .meta{grid-column:auto;margin-top:0;}
-    .stop .go{grid-column:auto;justify-self:auto;margin-top:0;min-height:0;background:transparent;border:2px solid rgba(255,102,196,.55);padding:13px 26px;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s;}
+    .stop .num,.stop .city,.stop .meta,.stop .go,.stop .face{grid-row:1;}
+    .stop .num{grid-column:1;font-size:1rem;}
+    .stop .face{grid-column:2;width:72px;height:72px;}
+    .stop .city{grid-column:3;}
+    .stop .meta{grid-column:4;margin-top:0;}
+    .stop .go{grid-column:5;justify-self:auto;margin-top:0;min-height:0;background:transparent;border:2px solid rgba(255,102,196,.55);padding:13px 26px;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s;}
     .stop .go:hover{background:var(--pink);border-color:var(--pink);transform:translateY(-2px);}
 
     .speakers{padding:100px 0;}
@@ -306,7 +319,8 @@
 <!-- NAV -->
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-logo" href="#top"><img src="https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/684d44a78bc25ac50a43525e.png" alt="Freedom To Function" width="140" height="42"></a>
+    <a class="nav-logo" href="#top"><img src="https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/684d44a78bc25ac50a43525e.png" alt="Freedom To Function" width="140" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fb">Freedom To Function</span></a>
+    <button class="nav-reg" onclick="openReg()">Register</button>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navBtn" onclick="toggleNav()">&#9776;</button>
     <nav class="nav-r" id="navr">
       <ul class="nav-links">
@@ -325,6 +339,7 @@
     <div class="hero-copy">
       <p class="kicker">Freedom To Function 2026 &nbsp;·&nbsp; UK Tour</p>
       <h1 class="display">Experience the Power of the <span class="pink">Prophetic</span></h1>
+      <p class="datechip">13 &ndash; 29 September 2026 &nbsp;&middot;&nbsp; Free Entry</p>
       <p class="lead">Ten gatherings across the nation this September — a prophetic insights conference to unlock destinies, awaken identity, and stir revival.</p>
       <div class="cities">
         <span>London</span><span>Manchester</span><span>Oldham</span><span>Erith</span><span>Skelmersdale</span>
@@ -335,7 +350,7 @@
       </div>
     </div>
     <div class="hero-art">
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/6851545aa1b9608d4aff4dde.png" alt="Freedom To Function — Prophetic Insights Conference 2026" fetchpriority="high">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/6851545aa1b9608d4aff4dde.png" alt="Freedom To Function — Prophetic Insights Conference 2026" fetchpriority="high" onerror="this.closest('.hero-art').style.display='none'">
     </div>
   </div>
 </section>
@@ -344,7 +359,7 @@
 <section class="statement">
   <div class="wrap stmt-grid">
     <div class="stmt-art reveal">
-      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/685d17b525f2727c1773bd51.png" alt="Freedom To Function 2026" loading="lazy">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/685d17b525f2727c1773bd51.png" alt="Freedom To Function 2026" loading="lazy" onerror="this.closest('.stmt-art').style.display='none'">
     </div>
     <div class="stmt reveal">
       <p class="kicker">This is more than a conference</p>
@@ -376,71 +391,71 @@
     <div class="stops">
       <div class="stop reveal">
         <div class="num">01</div>
-        <div class="city">London<small>All Nations Christian Centre · 15 York Hill, West Norwood, SE27 0BU</small></div>
-        <div class="meta"><span class="date">Sun 13 Sept · Time TBC</span><br>Bishop David &amp; Rev. Judith Oronsaye</div>
+        <div class="city">London</div>
+        <div class="meta"><span class="date">Sun 13 Sept · Time TBC</span><br>Bishop David &amp; Rev. Judith Oronsaye<span class="venue">All Nations Christian Centre · 15 York Hill, West Norwood, SE27 0BU</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_oronsaye-david-judith_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">02</div>
-        <div class="city">Oldham<small>Breakforth Evangelical Church &amp; Ministry · 8–9 Eldon Precinct, OL8 1JP</small></div>
-        <div class="meta"><span class="date">Wed 16 Sept · Time TBC</span><br>Host to be confirmed</div>
+        <div class="city">Oldham</div>
+        <div class="meta"><span class="date">Wed 16 Sept · Time TBC</span><br>Host to be confirmed<span class="venue">Breakforth Evangelical Church &amp; Ministry · 8–9 Eldon Precinct, OL8 1JP</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/host_tbc_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">03</div>
-        <div class="city">London<small>Kingdom Harvest Church · Venue details to follow</small></div>
-        <div class="meta"><span class="date">Fri 18 Sept · 7:00 PM</span><br>Hosted by Pst. Toyin Komolafe</div>
+        <div class="city">London</div>
+        <div class="meta"><span class="date">Fri 18 Sept · 7:00 PM</span><br>Hosted by Pst. Toyin Komolafe<span class="venue">Kingdom Harvest Church · Venue details to follow</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_komolafe-toyin_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">04</div>
-        <div class="city">Erith<small>Slade Green &amp; Howbury Community Centre · Chrome Road, DA8 2EL</small></div>
-        <div class="meta"><span class="date">Sun 20 Sept · 10:30 AM</span><br>Hosted by Pst. Toyin Komolafe</div>
+        <div class="city">Erith</div>
+        <div class="meta"><span class="date">Sun 20 Sept · 10:30 AM</span><br>Hosted by Pst. Toyin Komolafe<span class="venue">Slade Green &amp; Howbury Community Centre · Chrome Road, DA8 2EL</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_komolafe-toyin_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">05</div>
-        <div class="city">Manchester<small>115 Fairfield Street, M12 6EL</small></div>
-        <div class="meta"><span class="date">Mon 21 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession</span></div>
+        <div class="city">Manchester</div>
+        <div class="meta"><span class="date">Mon 21 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession</span><span class="venue">115 Fairfield Street, M12 6EL</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_upper-room-ministers-forum_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">06</div>
-        <div class="city">Manchester<small>115 Fairfield Street, M12 6EL</small></div>
-        <div class="meta"><span class="date">Tue 22 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession (continued)</span></div>
+        <div class="city">Manchester</div>
+        <div class="meta"><span class="date">Tue 22 Sept · 7:00–9:00 PM</span><br>Upper Room Ministers Forum<span class="host">An Altar of Intercession (continued)</span><span class="venue">115 Fairfield Street, M12 6EL</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_upper-room-ministers-forum_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">07</div>
-        <div class="city">London<small>New Hope Christian Church · 14 Rectory Road, N16 7QS</small></div>
-        <div class="meta"><span class="date">Fri 25 Sept · 7:00 PM</span><br>Hosted by Rev. Abigail Olaleye</div>
+        <div class="city">London</div>
+        <div class="meta"><span class="date">Fri 25 Sept · 7:00 PM</span><br>Hosted by Rev. Abigail Olaleye<span class="venue">New Hope Christian Church · 14 Rectory Road, N16 7QS</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_olaleye-abigail_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">08</div>
-        <div class="city">Skelmersdale<small>Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</small></div>
-        <div class="meta"><span class="date">Sat 26 Sept · 5:00 PM</span><br>Hosted by Pastor Tony Adegbenro</div>
+        <div class="city">Skelmersdale</div>
+        <div class="meta"><span class="date">Sat 26 Sept · 5:00 PM</span><br>Hosted by Pastor Tony Adegbenro<span class="venue">Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_adegbenro-tony_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">09</div>
-        <div class="city">Skelmersdale<small>Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</small></div>
-        <div class="meta"><span class="date">Sun 27 Sept · 10:00 AM</span><br>Hosted by Pastor Tony Adegbenro</div>
+        <div class="city">Skelmersdale</div>
+        <div class="meta"><span class="date">Sun 27 Sept · 10:00 AM</span><br>Hosted by Pastor Tony Adegbenro<span class="venue">Divine Solution Church · Hope High School, Carfield, Digmoor, WN8 9DP</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_adegbenro-tony_portrait_v1.jpg" alt="" loading="lazy">
       </div>
       <div class="stop reveal">
         <div class="num">10</div>
-        <div class="city">Manchester<small>Calvary Hephzibah · The West Indian Community Centre, 74 Carmoor Road, M13 0FB</small></div>
-        <div class="meta"><span class="date">Tue 29 Sept · 7:00 PM</span><br>Hosted by Pastor Shade Olatoye<span class="host">Ministry Night</span></div>
+        <div class="city">Manchester</div>
+        <div class="meta"><span class="date">Tue 29 Sept · 7:00 PM</span><br>Hosted by Pastor Shade Olatoye<span class="host">Ministry Night</span><span class="venue">Calvary Hephzibah · The West Indian Community Centre, 74 Carmoor Road, M13 0FB</span></div>
         <button class="go" onclick="openReg()">Register</button>
         <img class="face" src="images/speaker_olatoye-shade_portrait_v1.jpg" alt="" loading="lazy">
       </div>
