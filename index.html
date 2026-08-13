@@ -117,7 +117,7 @@
   .nav-cta{width:100%;max-width:280px;min-height:var(--tap);font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;background:var(--pink);color:#fff;border:0;padding:14px;cursor:pointer;}
 
   /* ---------------- HERO ---------------- */
-  .hero{position:relative;overflow:hidden;padding:40px 0 52px;}
+  .hero{position:relative;overflow:hidden;padding:44px 0 56px;}
   .hero::before{content:"";position:absolute;inset:0;background:
       radial-gradient(70% 45% at 70% 22%, rgba(255,102,196,.30), transparent 60%),
       radial-gradient(60% 45% at 15% 90%, rgba(229,56,143,.20), transparent 60%),
@@ -131,9 +131,6 @@
   .hero .cities span{position:relative;}
   .hero .cities span:not(:last-child)::after{content:"·";position:absolute;right:-11px;color:rgba(232,195,126,.5);}
   .hero-actions{display:flex;flex-direction:column;gap:12px;}
-  .hero-art{position:relative;max-width:320px;margin:0 auto;width:100%;}   /* copy leads on mobile; poster supports below */
-  .hero-art img{width:100%;border-radius:6px;filter:drop-shadow(0 26px 50px rgba(0,0,0,.55));}
-  .hero-art::before{content:"";position:absolute;inset:-6%;background:radial-gradient(circle at 50% 45%, rgba(255,102,196,.32), transparent 62%);z-index:-1;filter:blur(18px);}
 
   /* ---------------- STATEMENT ---------------- */
   .statement{padding:56px 0;border-top:1px solid rgba(255,255,255,.05);}
@@ -279,8 +276,7 @@
     .hero-actions{flex-direction:row;flex-wrap:wrap;align-items:center;}
 
     .hero{padding:80px 0 64px;}
-    .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px;}
-    .hero-art{max-width:none;margin:0;}
+    .hero-grid{grid-template-columns:minmax(0,780px);gap:48px;}
     .hero .lead{max-width:32ch;}
 
     .statement{padding:96px 0;}
@@ -341,7 +337,7 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
-    .cta,.stop,.go,.nav-cta,.hero-art{transition:none;}
+    .cta,.stop,.go,.nav-cta{transition:none;}
   }
 </style>
 </head>
@@ -379,13 +375,6 @@
         <button class="cta" onclick="openReg()">Register For Free</button>
         <a class="cta ghost" href="#tour">See The Tour</a>
       </div>
-    </div>
-    <div class="hero-art">
-      <!-- 2026 key art. The previous hero image was the prior year's poster, which
-           carried the old year and old theme baked into the artwork itself, so no
-           text check could catch it. No 2026 artwork exists in the GHL media
-           library; replace this file when real artwork is designed. -->
-      <img src="images/hero_ftf-2026_keyart_v1.jpg" width="1080" height="1350" alt="Freedom To Function 2026 — Prophetic Insights Conference, UK Tour. Ten free gatherings, 13–29 September 2026." fetchpriority="high" onerror="this.closest('.hero-art').style.display='none'">
     </div>
   </div>
 </section>
