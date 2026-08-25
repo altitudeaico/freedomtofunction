@@ -628,78 +628,13 @@
 <div class="modal-overlay" id="regModal">
   <div class="modal">
     <button class="close-x" aria-label="Close" onclick="closeReg()">&times;</button>
-    <form id="regForm" novalidate onsubmit="submitReg(event)">
-      <p class="k">Freedom To Function 2026</p>
-      <h2>Reserve Your Seat</h2>
-      <label for="fn">Full Name</label>
-      <input id="fn" name="full_name" type="text" autocomplete="name" placeholder="Your name" required>
-      <label for="em">Email</label>
-      <input id="em" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com" required>
-      <label for="ph">Phone</label>
-      <input id="ph" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Phone number">
-      <p class="formerr" id="regErr" role="alert" hidden></p>
-      <button class="submit" type="submit" id="regBtn">Register For Free</button>
-    </form>
-    <div class="thankyou" id="regThanks">
-      <p><strong>Thank you for registering! &#128591;</strong></p>
-      <p>We've received your details for the <strong>Freedom to Function: Prophetic Insights Conference</strong>. We're so glad you'll be joining us — we believe God has something powerful in store for you.</p>
-      <p>Keep an eye on your inbox for updates. God bless you richly!<br>— <em>Freedom to Function Team</em></p>
-    </div>
+    <iframe src="https://forms.leadconnectorhq.com/form/93IfNe0A6krp0ybugoOm" style="border:none;width:100%;height:600px;border-radius:6px;" title="Freedom To Function Registration"></iframe>
   </div>
 </div>
 
 <script>
   function openReg(){document.getElementById('regModal').classList.add('show');document.body.style.overflow='hidden';}
   function closeReg(){document.getElementById('regModal').classList.remove('show');document.body.style.overflow='';}
-  /* ---- Registration → GoHighLevel ----------------------------------------
-     Paste the Inbound Webhook URL from the GHL workflow trigger below.
-     While it is empty the form reports an honest error rather than showing a
-     thank-you, so a registration is never silently lost (which is what the
-     previous version did — it only swapped the two panels and stored nothing). */
-  var REG_WEBHOOK='';
-
-  function regError(msg){var e=document.getElementById('regErr');e.textContent=msg;e.hidden=false;}
-
-  function sendReg(payload){
-    var body=JSON.stringify(payload);
-    /* text/plain keeps this a CORS "simple request", so no preflight is needed —
-       GHL inbound webhooks parse the JSON body regardless of content type. If the
-       reply carries no CORS headers the fetch still rejects even though the POST
-       was delivered, so retry opaquely rather than lose the registration. */
-    var opts={method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:body};
-    return fetch(REG_WEBHOOK,opts).then(function(r){
-      if(!r.ok){throw new Error('HTTP '+r.status);}
-      return r;
-    }).catch(function(e){
-      return fetch(REG_WEBHOOK,{method:'POST',mode:'no-cors',headers:opts.headers,body:body});
-    });
-  }
-
-  function submitReg(ev){
-    if(ev&&ev.preventDefault){ev.preventDefault();}
-    var btn=document.getElementById('regBtn');
-    var name=document.getElementById('fn').value.trim();
-    var email=document.getElementById('em').value.trim();
-    var phone=document.getElementById('ph').value.trim();
-    document.getElementById('regErr').hidden=true;
-    if(!name){regError('Please enter your name.');return false;}
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){regError('Please enter a valid email address.');return false;}
-    if(!REG_WEBHOOK){regError('Registration is not connected yet — please try again shortly.');return false;}
-    var label=btn.textContent;
-    btn.disabled=true;btn.textContent='Sending…';
-    sendReg({full_name:name,email:email,phone:phone,
-             event:'Freedom To Function 2026',source:'freedomtofunction website',
-             page:location.href,submitted_at:new Date().toISOString()})
-      .then(function(){
-        document.getElementById('regForm').style.display='none';
-        document.getElementById('regThanks').style.display='block';
-      })
-      .catch(function(){
-        btn.disabled=false;btn.textContent=label;
-        regError('Sorry, something went wrong. Please try again.');
-      });
-    return false;
-  }
   function toggleNav(){var n=document.getElementById('navr'),b=document.getElementById('navBtn');var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';}
   function cn(){document.getElementById('navr').classList.remove('open');document.getElementById('navBtn').setAttribute('aria-expanded','false');document.body.style.overflow='';}
   document.getElementById('regModal').addEventListener('click',function(e){if(e.target===this)closeReg();});
