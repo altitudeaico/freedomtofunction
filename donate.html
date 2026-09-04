@@ -10,7 +10,6 @@
 <link rel="icon" type="image/png" href="/favicon.png" sizes="180x180">
 <link rel="canonical" href="https://freedomtofunction.com/donate.html">
 
-<!-- Social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Freedom To Function">
 <meta property="og:locale" content="en_GB">
@@ -76,12 +75,6 @@
     transition:transform .25s ease, box-shadow .25s ease, background .2s ease;
   }
   .cta:active{transform:translateY(1px);}
-  .cta.ghost{background:transparent;color:var(--pink);border:2px solid var(--pink);box-shadow:none;}
-
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* ===== DONATE PAGE SPECIFIC ===== */
 
   header{position:relative;padding:64px var(--pad);text-align:center;background:var(--ink);border-bottom:1px solid rgba(232,195,126,.16);}
   header::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 100% at 50% 100%, rgba(255,102,196,.08), transparent 70%);pointer-events:none;}
@@ -94,7 +87,6 @@
   section{padding:56px var(--pad);}
   section h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2rem,9vw,4.8rem);text-align:center;margin:0 0 46px;}
 
-  /* Why give section */
   .why-give{background:rgba(255,102,196,.02);border:1px solid rgba(255,102,196,.15);border-radius:6px;max-width:760px;margin:0 auto 60px;padding:40px;transition:all .3s;}
   .why-give:hover{border-color:rgba(255,102,196,.3);background:rgba(255,102,196,.04);}
   .why-give h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 18px;}
@@ -102,44 +94,21 @@
   .why-give li{font-size:.95rem;color:rgba(248,247,238,.82);display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;}
   .why-give li::before{content:"▸";color:var(--pink);font-weight:700;font-size:1.2rem;line-height:1;}
 
-  /* Donation grid */
-  .donation-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:0 auto 60px;}
-  .dcard{display:grid;gap:18px;grid-template-columns:1fr;padding:32px 26px;border:1px solid rgba(255,102,196,.2);border-radius:6px;background:rgba(255,102,196,.01);transition:all .3s;position:relative;cursor:pointer;}
-  .dcard:hover{border-color:rgba(255,102,196,.4);background:rgba(255,102,196,.05);box-shadow:0 16px 40px -16px rgba(255,102,196,.2);}
+  .donation-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:0 auto 40px;}
+  .dcard{display:grid;gap:0;grid-template-columns:1fr;padding:32px 26px;border:1px solid rgba(255,102,196,.2);border-radius:6px;background:rgba(255,102,196,.01);transition:all .3s;position:relative;cursor:pointer;}
+  .dcard:hover{border-color:rgba(255,102,196,.4);background:rgba(255,102,196,.05);box-shadow:0 16px 40px -16px rgba(255,102,196,.2);transform:translateY(-2px);}
   .dcard.featured{border-color:rgba(255,102,196,.35);background:rgba(255,102,196,.08);}
   .dcard.featured::before{content:"MOST POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;padding:4px 16px;font-family:var(--body);font-weight:700;font-size:.68rem;letter-spacing:.1em;border-radius:2px;}
-  input[type="radio"]:checked + .d-top {
-    opacity: 1;
-  }
-  .dcard input[type="radio"]:checked {
-    border-color: var(--pink);
-    border-width: 2px;
-  }
-  .dcard input[type="radio"]:checked ~ .d-top,
-  .dcard:has(input[type="radio"]:checked) {
-    --accent: var(--pink);
-  }
-  .dcard:has(input[type="radio"]:checked) {
-    border-color: var(--pink);
-    background: rgba(255,102,196,.1);
-    box-shadow: 0 16px 40px -16px rgba(255,102,196,.3);
-  }
 
-  .d-top{display:grid;grid-template-columns:1fr;gap:4px;}
-  .d-name{font-family:var(--body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--gold);}
-  .d-amount{font-family:var(--display);text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,7vw,2.8rem);color:var(--cream);margin:4px 0 8px;}
+  .d-name{font-family:var(--body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--gold);margin-bottom:10px;}
+  .d-amount{font-family:var(--display);text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,7vw,2.8rem);color:var(--cream);margin:0 0 8px;}
   .d-desc{font-size:.92rem;color:rgba(248,247,238,.74);line-height:1.5;}
 
-  #submitBtn{cursor:pointer;animation:slideIn .3s ease;}
-  @keyframes slideIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
-
-  /* Custom amount */
   .custom{background:rgba(232,195,126,.06);border:2px dashed rgba(232,195,126,.4);border-radius:6px;padding:38px 28px;text-align:center;max-width:600px;margin:0 auto;}
   .custom h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 16px;}
   .custom p{font-size:.95rem;color:rgba(248,247,238,.78);margin:0 0 12px;}
   .custom .contact{display:grid;gap:8px;margin-top:20px;font-family:var(--body);font-size:.92rem;color:rgba(248,247,238,.82);}
 
-/* Footer */
   footer{background:#0f080c;padding:52px var(--pad) calc(40px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid rgba(255,255,255,.06);}
   footer img{height:54px;width:auto;margin:0 auto 20px;}
   footer .fnav{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;margin-bottom:22px;font-family:var(--body);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;}
@@ -151,14 +120,12 @@
   @media(min-width:700px){
     :root{--pad:32px;}
     .donation-grid{grid-template-columns:1fr 1fr;gap:28px;}
-    .dcard{grid-template-columns:1fr;}
-    .d-top{grid-template-columns:1fr;}
     section{padding:84px var(--pad);}
   }
 
   @media(min-width:1040px){
     .donation-grid{grid-template-columns:repeat(4, 1fr);}
-    .dcard{grid-template-columns:1fr;text-align:center;}
+    .dcard{text-align:center;}
   }
 </style>
 </head>
@@ -185,55 +152,31 @@
 
 <section>
   <h2>Choose Your Gift</h2>
-  <form id="donationForm" style="max-width:1040px;margin:0 auto;">
-    <div class="donation-grid">
-      <label class="dcard">
-        <input type="radio" name="amount" value="10" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" style="display:none;">
-        <div class="d-top">
-          <div>
-            <div class="d-name">Seed Gift</div>
-            <div class="d-amount">£10</div>
-            <div class="d-desc">Plant into this season</div>
-          </div>
-        </div>
-      </label>
-
-      <label class="dcard">
-        <input type="radio" name="amount" value="50" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" style="display:none;">
-        <div class="d-top">
-          <div>
-            <div class="d-name">Supporter Gift</div>
-            <div class="d-amount">£50</div>
-            <div class="d-desc">Enable a leader's breakthrough</div>
-          </div>
-        </div>
-      </label>
-
-      <label class="dcard featured">
-        <input type="radio" name="amount" value="100" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" style="display:none;">
-        <div class="d-top">
-          <div>
-            <div class="d-name">Visionary Gift</div>
-            <div class="d-amount">£100</div>
-            <div class="d-desc">Sponsor core production</div>
-          </div>
-        </div>
-      </label>
-
-      <label class="dcard">
-        <input type="radio" name="amount" value="1000" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" style="display:none;">
-        <div class="d-top">
-          <div>
-            <div class="d-name">Legacy Gift</div>
-            <div class="d-amount">£1000</div>
-            <div class="d-desc">Sponsor an entire stop</div>
-          </div>
-        </div>
-      </label>
+  <div class="donation-grid" id="donationGrid">
+    <div class="dcard" onclick="donate('10')">
+      <div class="d-name">Seed Gift</div>
+      <div class="d-amount">£10</div>
+      <div class="d-desc">Plant into this season</div>
     </div>
-    
-    <button type="submit" class="cta" id="submitBtn" style="max-width:400px;margin:40px auto 0;display:none;">Proceed to Donation</button>
-  </form>
+
+    <div class="dcard" onclick="donate('50')">
+      <div class="d-name">Supporter Gift</div>
+      <div class="d-amount">£50</div>
+      <div class="d-desc">Enable a leader's breakthrough</div>
+    </div>
+
+    <div class="dcard featured" onclick="donate('100')">
+      <div class="d-name">Visionary Gift</div>
+      <div class="d-amount">£100</div>
+      <div class="d-desc">Sponsor core production</div>
+    </div>
+
+    <div class="dcard" onclick="donate('1000')">
+      <div class="d-name">Legacy Gift</div>
+      <div class="d-amount">£1000</div>
+      <div class="d-desc">Sponsor an entire stop</div>
+    </div>
+  </div>
 
   <div class="divider"></div>
 
@@ -247,29 +190,6 @@
   </div>
 </section>
 
-<script>
-  const form = document.getElementById('donationForm');
-  const radios = form.querySelectorAll('input[type="radio"]');
-  const submitBtn = document.getElementById('submitBtn');
-
-  radios.forEach(radio => {
-    radio.addEventListener('change', function() {
-      submitBtn.style.display = 'block';
-    });
-  });
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const selected = form.querySelector('input[type="radio"]:checked');
-    if (selected) {
-      const url = selected.getAttribute('data-url');
-      window.location.href = url;
-    }
-  });
-</script>
-
-
-
 <footer>
   <img src="https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/684d5c2afc74bdcdb0d26f04.png" alt="Freedom To Function" loading="lazy">
   <div class="fnav">
@@ -282,6 +202,21 @@
   <p>&copy; Freedom To Function · All Rights Reserved.</p>
   <p><a class="link" href="#">Contact</a> &nbsp;|&nbsp; <a class="link" href="#">Privacy</a></p>
 </footer>
+
+<script>
+function donate(amount) {
+  // Store the amount in sessionStorage so it persists across redirect
+  sessionStorage.setItem('ftf_donation_amount', amount);
+  
+  // Tag to add based on amount
+  const tag = 'F2F Donor - £' + amount;
+  sessionStorage.setItem('ftf_donor_tag', tag);
+  
+  // Redirect to GHL giving funnel page
+  // The page will handle payment, tagging, and confirmation
+  window.location.href = 'https://app.leadconnectorhq.com/funnels/ePeNYo8jrJ0Dtj94og7C/mfzaZ470eph1aSImIpG4';
+}
+</script>
 
 </body>
 </html>
