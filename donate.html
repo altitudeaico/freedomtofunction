@@ -104,16 +104,34 @@
 
   /* Donation grid */
   .donation-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:0 auto 60px;}
-  .dcard{display:grid;gap:18px;grid-template-columns:1fr;padding:32px 26px;border:1px solid rgba(255,102,196,.2);border-radius:6px;background:rgba(255,102,196,.01);transition:all .3s;position:relative;}
+  .dcard{display:grid;gap:18px;grid-template-columns:1fr;padding:32px 26px;border:1px solid rgba(255,102,196,.2);border-radius:6px;background:rgba(255,102,196,.01);transition:all .3s;position:relative;cursor:pointer;}
   .dcard:hover{border-color:rgba(255,102,196,.4);background:rgba(255,102,196,.05);box-shadow:0 16px 40px -16px rgba(255,102,196,.2);}
   .dcard.featured{border-color:rgba(255,102,196,.35);background:rgba(255,102,196,.08);}
   .dcard.featured::before{content:"MOST POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;padding:4px 16px;font-family:var(--body);font-weight:700;font-size:.68rem;letter-spacing:.1em;border-radius:2px;}
+  input[type="radio"]:checked + .d-top {
+    opacity: 1;
+  }
+  .dcard input[type="radio"]:checked {
+    border-color: var(--pink);
+    border-width: 2px;
+  }
+  .dcard input[type="radio"]:checked ~ .d-top,
+  .dcard:has(input[type="radio"]:checked) {
+    --accent: var(--pink);
+  }
+  .dcard:has(input[type="radio"]:checked) {
+    border-color: var(--pink);
+    background: rgba(255,102,196,.1);
+    box-shadow: 0 16px 40px -16px rgba(255,102,196,.3);
+  }
 
-  .d-top{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;}
+  .d-top{display:grid;grid-template-columns:1fr;gap:4px;}
   .d-name{font-family:var(--body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--gold);}
   .d-amount{font-family:var(--display);text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,7vw,2.8rem);color:var(--cream);margin:4px 0 8px;}
   .d-desc{font-size:.92rem;color:rgba(248,247,238,.74);line-height:1.5;}
-  .d-link{margin-top:12px;}
+
+  #submitBtn{cursor:pointer;animation:slideIn .3s ease;}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 
   /* Custom amount */
   .custom{background:rgba(232,195,126,.06);border:2px dashed rgba(232,195,126,.4);border-radius:6px;padding:38px 28px;text-align:center;max-width:600px;margin:0 auto;}
@@ -133,16 +151,14 @@
   @media(min-width:700px){
     :root{--pad:32px;}
     .donation-grid{grid-template-columns:1fr 1fr;gap:28px;}
-    .dcard{grid-template-columns:1fr 1fr;align-items:center;}
-    .d-top{grid-template-columns:1fr;gap:4px;}
-    .d-link{margin-top:18px;}
+    .dcard{grid-template-columns:1fr;}
+    .d-top{grid-template-columns:1fr;}
     section{padding:84px var(--pad);}
   }
 
   @media(min-width:1040px){
     .donation-grid{grid-template-columns:repeat(4, 1fr);}
     .dcard{grid-template-columns:1fr;text-align:center;}
-    .d-top{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -169,51 +185,55 @@
 
 <section>
   <h2>Choose Your Gift</h2>
-  <div class="donation-grid">
-    <div class="dcard">
-      <div class="d-top">
-        <div>
-          <div class="d-name">Seed Gift</div>
-          <div class="d-amount">£10</div>
-          <div class="d-desc">Plant into this season</div>
+  <form id="donationForm" style="max-width:1040px;margin:0 auto;">
+    <div class="donation-grid">
+      <label class="dcard">
+        <input type="radio" name="amount" value="10" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" style="display:none;">
+        <div class="d-top">
+          <div>
+            <div class="d-name">Seed Gift</div>
+            <div class="d-amount">£10</div>
+            <div class="d-desc">Plant into this season</div>
+          </div>
         </div>
-      </div>
-      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" class="cta d-link">Give £10</a>
-    </div>
+      </label>
 
-    <div class="dcard">
-      <div class="d-top">
-        <div>
-          <div class="d-name">Supporter Gift</div>
-          <div class="d-amount">£50</div>
-          <div class="d-desc">Enable a leader's breakthrough</div>
+      <label class="dcard">
+        <input type="radio" name="amount" value="50" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" style="display:none;">
+        <div class="d-top">
+          <div>
+            <div class="d-name">Supporter Gift</div>
+            <div class="d-amount">£50</div>
+            <div class="d-desc">Enable a leader's breakthrough</div>
+          </div>
         </div>
-      </div>
-      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" class="cta d-link">Give £50</a>
-    </div>
+      </label>
 
-    <div class="dcard featured">
-      <div class="d-top">
-        <div>
-          <div class="d-name">Visionary Gift</div>
-          <div class="d-amount">£100</div>
-          <div class="d-desc">Sponsor core production</div>
+      <label class="dcard featured">
+        <input type="radio" name="amount" value="100" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" style="display:none;">
+        <div class="d-top">
+          <div>
+            <div class="d-name">Visionary Gift</div>
+            <div class="d-amount">£100</div>
+            <div class="d-desc">Sponsor core production</div>
+          </div>
         </div>
-      </div>
-      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" class="cta d-link">Give £100</a>
-    </div>
+      </label>
 
-    <div class="dcard">
-      <div class="d-top">
-        <div>
-          <div class="d-name">Legacy Gift</div>
-          <div class="d-amount">£1000</div>
-          <div class="d-desc">Sponsor an entire stop</div>
+      <label class="dcard">
+        <input type="radio" name="amount" value="1000" data-url="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" style="display:none;">
+        <div class="d-top">
+          <div>
+            <div class="d-name">Legacy Gift</div>
+            <div class="d-amount">£1000</div>
+            <div class="d-desc">Sponsor an entire stop</div>
+          </div>
         </div>
-      </div>
-      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" class="cta d-link">Give £1000</a>
+      </label>
     </div>
-  </div>
+    
+    <button type="submit" class="cta" id="submitBtn" style="max-width:400px;margin:40px auto 0;display:none;">Proceed to Donation</button>
+  </form>
 
   <div class="divider"></div>
 
@@ -226,6 +246,27 @@
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('donationForm');
+  const radios = form.querySelectorAll('input[type="radio"]');
+  const submitBtn = document.getElementById('submitBtn');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      submitBtn.style.display = 'block';
+    });
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const selected = form.querySelector('input[type="radio"]:checked');
+    if (selected) {
+      const url = selected.getAttribute('data-url');
+      window.location.href = url;
+    }
+  });
+</script>
 
 
 
