@@ -1,418 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Freedom to Function 2026 | Donate</title>
-    
-    <!-- OG Tags -->
-    <meta property="og:title" content="Support Freedom to Function 2026">
-    <meta property="og:description" content="Your gift supports the Freedom to Function conference tour — a season of prophetic insight, leadership breakthrough, and spiritual renewal.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
-    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
-    <meta property="og:url" content="https://freedomtofunction.com/donate.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
-    <meta name="description" content="Support the Freedom to Function 2026 UK prophetic conference tour with your generous gift.">
-    <link rel="canonical" href="https://freedomtofunction.com/donate.html">
-    
-    <style>
-        :root {
-            --pink: #ff66c4;
-            --pink-deep: #e5388f;
-            --ink: #150c12;
-            --plum: #241320;
-            --cream: #f8f7ee;
-            --gold: #e8c37e;
-            --black: #000;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--cream);
-            color: var(--ink);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--ink) 0%, var(--plum) 100%);
-            color: var(--cream);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 3px solid var(--gold);
-        }
-        
-        header h1 {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-            font-weight: 700;
-        }
-        
-        header p {
-            font-size: clamp(1rem, 3vw, 1.25rem);
-            opacity: 0.95;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .nav-back {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--cream);
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            transition: background 0.2s;
-        }
-        
-        .nav-back:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1rem;
-        }
-        
-        .intro-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--pink);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-        
-        .intro-section h2 {
-            color: var(--pink);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .intro-section p {
-            margin-bottom: 1rem;
-            color: var(--plum);
-            line-height: 1.8;
-        }
-        
-        .donation-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .donation-card {
-            background: white;
-            border: 2px solid var(--cream);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .donation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--pink), var(--gold));
-        }
-        
-        .donation-card:hover {
-            border-color: var(--pink);
-            box-shadow: 0 8px 24px rgba(255, 102, 196, 0.15);
-            transform: translateY(-4px);
-        }
-        
-        .donation-card.featured {
-            border-color: var(--pink);
-            box-shadow: 0 8px 24px rgba(255, 102, 196, 0.2);
-        }
-        
-        .donation-card.featured::after {
-            content: 'Most Popular';
-            position: absolute;
-            top: -8px;
-            right: 0;
-            background: var(--pink);
-            color: white;
-            padding: 0.25rem 1.5rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            transform: rotate(45deg) translateX(20px);
-            transform-origin: center;
-        }
-        
-        .amount {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--pink);
-            margin: 0.5rem 0;
-        }
-        
-        .amount-label {
-            font-size: 0.9rem;
-            color: var(--plum);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .description {
-            color: var(--plum);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            min-height: 50px;
-        }
-        
-        .donate-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--pink), var(--pink-deep));
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0.5px;
-        }
-        
-        .donate-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(255, 102, 196, 0.3);
-        }
-        
-        .donate-btn:active {
-            transform: scale(0.98);
-        }
-        
-        .custom-amount-section {
-            background: white;
-            border: 2px dashed var(--gold);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        
-        .custom-amount-section h3 {
-            color: var(--pink);
-            margin-bottom: 1rem;
-        }
-        
-        .custom-amount-section p {
-            color: var(--plum);
-            margin-bottom: 1rem;
-        }
-        
-        .impact-section {
-            background: linear-gradient(135deg, var(--ink) 0%, var(--plum) 100%);
-            color: var(--cream);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .impact-section h2 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-        
-        .impact-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .impact-item {
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--gold);
-            border-radius: 4px;
-        }
-        
-        .impact-item strong {
-            color: var(--gold);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            background: var(--ink);
-            color: var(--cream);
-            text-align: center;
-            padding: 2rem 1rem;
-            border-top: 2px solid var(--gold);
-            font-size: 0.9rem;
-        }
-        
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: var(--gold);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--pink);
-        }
-        
-        @media (max-width: 768px) {
-            main {
-                padding: 2rem 1rem;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .donation-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .amount {
-                font-size: 2rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Support Freedom to Function 2026 | Donate</title>
+<meta name="description" content="Support the Freedom to Function 2026 prophetic conference tour. Your gift enables ten free gatherings across the UK.">
+<meta name="theme-color" content="#150c12">
+<link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="180x180">
+<link rel="canonical" href="https://freedomtofunction.com/donate.html">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Freedom To Function">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://freedomtofunction.com/donate.html">
+<meta property="og:title" content="Support Freedom to Function 2026">
+<meta property="og:description" content="Your gift enables the Freedom to Function 2026 conference tour — a season of prophetic insight, leadership breakthrough, and spiritual renewal across the UK.">
+<meta property="og:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
+<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+<style>
+  @font-face{
+    font-family:'HorizonCustom';
+    src:url('https://4badb39f.customfonts.pages.dev/horizon.woff2') format('woff2');
+    font-weight:normal;font-style:normal;font-display:swap;
+  }
+
+  :root{
+    --pink:#ff66c4;
+    --pink-deep:#e5388f;
+    --ink:#150c12;
+    --plum:#241320;
+    --cream:#f8f7ee;
+    --gold:#e8c37e;
+    --white:#ffffff;
+
+    --display:'HorizonCustom','Poppins',sans-serif;
+    --body:'Poppins',system-ui,sans-serif;
+    --serif:'Playfair Display',Georgia,serif;
+
+    --pad:20px;
+    --maxw:1240px;
+    --tap:52px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;}
+  body{margin:0;width:100%;max-width:100%;font-family:var(--body);background:var(--ink);color:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  img{max-width:100%;display:block;border:0;height:auto;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{margin:0;}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+  .kicker{font-family:var(--body);font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:.66rem;color:var(--gold);margin:0 0 16px;}
+  .display{font-family:var(--display);text-transform:uppercase;line-height:.94;font-weight:400;margin:0;text-wrap:balance;overflow-wrap:break-word;}
+  .pink{color:var(--pink);}
+
+  .divider{position:relative;text-align:center;margin:60px 0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,102,196,.2),transparent);}
+  .divider::after{content:"◆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--ink);padding:0 8px;color:var(--gold);font-size:12px;}
+
+  .cta{
+    display:block;width:100%;text-align:center;
+    font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.9rem;
+    color:var(--white);background:var(--pink);border:0;cursor:pointer;
+    min-height:var(--tap);padding:16px 28px;
+    box-shadow:0 12px 34px -14px rgba(255,102,196,.7);
+    transition:transform .25s ease, box-shadow .25s ease, background .2s ease;
+  }
+  .cta:active{transform:translateY(1px);}
+  .cta.ghost{background:transparent;color:var(--pink);border:2px solid var(--pink);box-shadow:none;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ===== DONATE PAGE SPECIFIC ===== */
+
+  header{position:relative;padding:64px var(--pad);text-align:center;background:var(--ink);border-bottom:1px solid rgba(232,195,126,.16);}
+  header::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 100% at 50% 100%, rgba(255,102,196,.08), transparent 70%);pointer-events:none;}
+  header .back{position:relative;display:inline-block;font-family:var(--body);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin-bottom:18px;transition:opacity .25s;}
+  header .back:hover{opacity:.72;}
+
+  header h1{position:relative;font-family:var(--display);text-transform:uppercase;line-height:.96;font-size:clamp(2.4rem,11vw,6.2rem);margin:0 auto 14px;max-width:none;color:var(--cream);}
+  header p{position:relative;font-family:var(--body);font-size:.95rem;color:rgba(248,247,238,.78);margin:0 auto;max-width:60ch;}
+
+  section{padding:56px var(--pad);}
+  section h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2rem,9vw,4.8rem);text-align:center;margin:0 0 46px;}
+
+  /* Why give section */
+  .why-give{background:rgba(255,102,196,.02);border:1px solid rgba(255,102,196,.15);border-radius:6px;max-width:760px;margin:0 auto 60px;padding:40px;transition:all .3s;}
+  .why-give:hover{border-color:rgba(255,102,196,.3);background:rgba(255,102,196,.04);}
+  .why-give h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 18px;}
+  .why-give ul{list-style:none;margin:0;padding:0;display:grid;gap:16px;}
+  .why-give li{font-size:.95rem;color:rgba(248,247,238,.82);display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;}
+  .why-give li::before{content:"▸";color:var(--pink);font-weight:700;font-size:1.2rem;line-height:1;}
+
+  /* Donation grid */
+  .donation-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:0 auto 60px;}
+  .dcard{display:grid;gap:18px;grid-template-columns:1fr;padding:32px 26px;border:1px solid rgba(255,102,196,.2);border-radius:6px;background:rgba(255,102,196,.01);transition:all .3s;position:relative;}
+  .dcard:hover{border-color:rgba(255,102,196,.4);background:rgba(255,102,196,.05);box-shadow:0 16px 40px -16px rgba(255,102,196,.2);}
+  .dcard.featured{border-color:rgba(255,102,196,.35);background:rgba(255,102,196,.08);}
+  .dcard.featured::before{content:"MOST POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;padding:4px 16px;font-family:var(--body);font-weight:700;font-size:.68rem;letter-spacing:.1em;border-radius:2px;}
+
+  .d-top{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;}
+  .d-name{font-family:var(--body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--gold);}
+  .d-amount{font-family:var(--display);text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,7vw,2.8rem);color:var(--cream);margin:4px 0 8px;}
+  .d-desc{font-size:.92rem;color:rgba(248,247,238,.74);line-height:1.5;}
+  .d-link{margin-top:12px;}
+
+  /* Custom amount */
+  .custom{background:rgba(232,195,126,.06);border:2px dashed rgba(232,195,126,.4);border-radius:6px;padding:38px 28px;text-align:center;max-width:600px;margin:0 auto;}
+  .custom h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 16px;}
+  .custom p{font-size:.95rem;color:rgba(248,247,238,.78);margin:0 0 12px;}
+  .custom .contact{display:grid;gap:8px;margin-top:20px;font-family:var(--body);font-size:.92rem;color:rgba(248,247,238,.82);}
+
+  /* Impact section */
+  .impact{background:linear-gradient(180deg,var(--plum) 0%,#1b1019 100%);padding:84px var(--pad);}
+  .impact h2{color:var(--gold);margin-bottom:48px;}
+  .impact-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:1040px;margin:0 auto;}
+  .i-item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:20px;border:1px solid rgba(232,195,126,.2);background:rgba(255,255,255,.02);border-radius:4px;transition:all .3s;}
+  .i-item:hover{border-color:rgba(232,195,126,.35);background:rgba(255,255,255,.04);}
+  .i-amount{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.4rem,4vw,1.8rem);color:var(--gold);line-height:.95;}
+  .i-text{font-size:.93rem;color:rgba(248,247,238,.78);line-height:1.5;}
+
+  /* Footer */
+  footer{background:#0f080c;padding:52px var(--pad) calc(40px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid rgba(255,255,255,.06);}
+  footer img{height:54px;width:auto;margin:0 auto 20px;}
+  footer .fnav{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;margin-bottom:22px;font-family:var(--body);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;}
+  footer .fnav a{color:rgba(248,247,238,.7);padding:8px 0;transition:color .2s;}
+  footer .fnav a:hover{color:var(--pink);}
+  footer p{font-size:.78rem;color:rgba(248,247,238,.45);margin:6px 0;}
+  footer a.link{color:var(--pink);}
+
+  @media(min-width:700px){
+    :root{--pad:32px;}
+    .donation-grid{grid-template-columns:1fr 1fr;gap:28px;}
+    .dcard{grid-template-columns:1fr 1fr;align-items:center;}
+    .d-top{grid-template-columns:1fr;gap:4px;}
+    .d-link{margin-top:18px;}
+    .impact-grid{grid-template-columns:1fr 1fr 1fr;}
+    section{padding:84px var(--pad);}
+  }
+
+  @media(min-width:1040px){
+    .donation-grid{grid-template-columns:repeat(4, 1fr);}
+    .dcard{grid-template-columns:1fr;text-align:center;}
+    .d-top{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="nav-back">← Back to Event</a>
-        <h1>Support the Conference</h1>
-        <p>Your gift enables Freedom to Function to reach churches and leaders across the UK</p>
-    </header>
-    
-    <main>
-        <section class="intro-section">
-            <h2>✨ Why Give?</h2>
-            <p>Freedom to Function 2026 is a prophetic insight and leadership breakthrough conference reaching 10 cities across the UK in September. Your offering directly supports:</p>
-            <ul style="margin-left: 1.5rem; color: var(--plum);">
-                <li style="margin-bottom: 0.5rem;">Speaker hosting and travel arrangements</li>
-                <li style="margin-bottom: 0.5rem;">Venue hire and production costs</li>
-                <li style="margin-bottom: 0.5rem;">Reaching unreached leaders and pastors</li>
-                <li style="margin-bottom: 0.5rem;">Free access for all attendees</li>
-            </ul>
-        </section>
-        
-        <section>
-            <h2 style="text-align: center; color: var(--ink); margin-bottom: 2rem; font-size: 2rem;">Choose Your Gift</h2>
-            
-            <div class="donation-options">
-                <div class="donation-card">
-                    <div class="amount-label">Seed Gift</div>
-                    <div class="amount">£10</div>
-                    <div class="description">A seed offering to plant into this season</div>
-                    <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" class="donate-btn">Give £10</a>
-                </div>
-                
-                <div class="donation-card">
-                    <div class="amount-label">Supporter Gift</div>
-                    <div class="amount">£50</div>
-                    <div class="description">Support a church leader's attendance</div>
-                    <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" class="donate-btn">Give £50</a>
-                </div>
-                
-                <div class="donation-card featured">
-                    <div class="amount-label">Visionary Gift</div>
-                    <div class="amount">£100</div>
-                    <div class="description">Sponsor speakers and venue production</div>
-                    <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" class="donate-btn">Give £100</a>
-                </div>
-                
-                <div class="donation-card">
-                    <div class="amount-label">Legacy Gift</div>
-                    <div class="amount">£1000</div>
-                    <div class="description">Sponsor an entire tour stop gathering</div>
-                    <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" class="donate-btn">Give £1000</a>
-                </div>
-            </div>
-            
-            <div class="custom-amount-section">
-                <h3>◆ Give a Custom Amount</h3>
-                <p>If you'd like to give a different amount, please contact us directly:</p>
-                <p style="font-size: 0.95rem; margin-top: 1rem;">
-                    📧 <strong>hello@altitudeai.co</strong> | 
-                    📱 <strong>+44 7952 011726</strong>
-                </p>
-            </div>
-        </section>
-        
-        <section class="impact-section">
-            <h2>◆ What Your Gift Does</h2>
-            <div class="impact-list">
-                <div class="impact-item">
-                    <strong>£10</strong>
-                    Resources for prayer and intercession
-                </div>
-                <div class="impact-item">
-                    <strong>£50</strong>
-                    Covers an attendee's evening refreshment
-                </div>
-                <div class="impact-item">
-                    <strong>£100</strong>
-                    Speaker honorarium support
-                </div>
-                <div class="impact-item">
-                    <strong>£500</strong>
-                    Full venue hire for a gathering
-                </div>
-                <div class="impact-item">
-                    <strong>£1000</strong>
-                    Complete tour stop sponsorship
-                </div>
-                <div class="impact-item">
-                    <strong>£5000+</strong>
-                    Conference partner status
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p><strong>Freedom to Function 2026</strong> | September 13–29</p>
-        <p>Hosted by Calvary Hephzibah Full Gospel Church & Altitude AI</p>
-        <div class="footer-links">
-            <a href="index.html">Back to Event</a>
-            <a href="mailto:hello@altitudeai.co">Contact Us</a>
+
+<header>
+  <a href="index.html" class="back">← Back to Event</a>
+  <h1>Support the Conference</h1>
+  <p>Your gift enables Freedom to Function to reach churches and emerging leaders across the UK</p>
+</header>
+
+<section>
+  <h2>Why Give?</h2>
+  <div class="why-give">
+    <h3>🙏 The Season We're In</h3>
+    <ul>
+      <li>Speaker travel, accommodation &amp; pastoral care across 10 cities</li>
+      <li>Venue hire, technical production &amp; livestream infrastructure</li>
+      <li>Reaching emerging leaders who otherwise wouldn't attend</li>
+      <li>Keeping entry free — removing financial barriers to breakthrough</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Choose Your Gift</h2>
+  <div class="donation-grid">
+    <div class="dcard">
+      <div class="d-top">
+        <div>
+          <div class="d-name">Seed Gift</div>
+          <div class="d-amount">£10</div>
+          <div class="d-desc">Plant into this season</div>
         </div>
-        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">All donations support the Freedom to Function 2026 ministry.</p>
-    </footer>
+      </div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" class="cta d-link">Give £10</a>
+    </div>
+
+    <div class="dcard">
+      <div class="d-top">
+        <div>
+          <div class="d-name">Supporter Gift</div>
+          <div class="d-amount">£50</div>
+          <div class="d-desc">Enable a leader's breakthrough</div>
+        </div>
+      </div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" class="cta d-link">Give £50</a>
+    </div>
+
+    <div class="dcard featured">
+      <div class="d-top">
+        <div>
+          <div class="d-name">Visionary Gift</div>
+          <div class="d-amount">£100</div>
+          <div class="d-desc">Sponsor core production</div>
+        </div>
+      </div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" class="cta d-link">Give £100</a>
+    </div>
+
+    <div class="dcard">
+      <div class="d-top">
+        <div>
+          <div class="d-name">Legacy Gift</div>
+          <div class="d-amount">£1000</div>
+          <div class="d-desc">Sponsor an entire stop</div>
+        </div>
+      </div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" class="cta d-link">Give £1000</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="custom">
+    <h3>Custom Amount</h3>
+    <p>If you'd like to give something different, we welcome that entirely.</p>
+    <div class="contact">
+      <div><strong>hello@altitudeai.co</strong></div>
+      <div><strong>+44 7952 011726</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <h2>What Your Gift Does</h2>
+  <div class="impact-grid">
+    <div class="i-item">
+      <div class="i-amount">£10</div>
+      <div class="i-text">Backs prayer &amp; intercession materials for the season</div>
+    </div>
+    <div class="i-item">
+      <div class="i-amount">£50</div>
+      <div class="i-text">Covers one attendee's refreshment across a gathering</div>
+    </div>
+    <div class="i-item">
+      <div class="i-amount">£100</div>
+      <div class="i-text">Sponsor a speaker's travel or accommodation</div>
+    </div>
+    <div class="i-item">
+      <div class="i-amount">£500</div>
+      <div class="i-text">Full venue hire for one tour stop</div>
+    </div>
+    <div class="i-item">
+      <div class="i-amount">£1000</div>
+      <div class="i-text">Complete sponsorship of an entire gathering</div>
+    </div>
+    <div class="i-item">
+      <div class="i-amount">£5000+</div>
+      <div class="i-text">Conference partner status &amp; recognition</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="https://assets.cdn.filesafe.space/jJlOnpzzHzzD2Jjo2TZv/media/684d5c2afc74bdcdb0d26f04.png" alt="Freedom To Function" loading="lazy">
+  <div class="fnav">
+    <a href="index.html">Home</a>
+    <a href="index.html#tour">Tour Dates</a>
+    <a href="index.html#speakers">Speakers</a>
+    <a href="index.html#prayer">Prayer</a>
+    <a href="index.html">Register</a>
+  </div>
+  <p>&copy; Freedom To Function · All Rights Reserved.</p>
+  <p><a class="link" href="#">Contact</a> &nbsp;|&nbsp; <a class="link" href="#">Privacy</a></p>
+</footer>
+
 </body>
 </html>
