@@ -17,7 +17,6 @@
 <meta property="og:title" content="Support Freedom to Function 2026">
 <meta property="og:description" content="Your gift enables the Freedom to Function 2026 conference tour — a season of prophetic insight, leadership breakthrough, and spiritual renewal across the UK.">
 <meta property="og:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
-<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/altitudeaico/freedomtofunction/main/images/og_freedom-to-function-2026_v1.jpg">
 
@@ -43,7 +42,6 @@
 
     --display:'HorizonCustom','Poppins',sans-serif;
     --body:'Poppins',system-ui,sans-serif;
-    --serif:'Playfair Display',Georgia,serif;
 
     --pad:20px;
     --maxw:1240px;
@@ -57,12 +55,6 @@
   a{color:inherit;text-decoration:none;}
   h1,h2,h3{margin:0;}
 
-  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
-
-  .kicker{font-family:var(--body);font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:.66rem;color:var(--gold);margin:0 0 16px;}
-  .display{font-family:var(--display);text-transform:uppercase;line-height:.94;font-weight:400;margin:0;text-wrap:balance;overflow-wrap:break-word;}
-  .pink{color:var(--pink);}
-
   .divider{position:relative;text-align:center;margin:60px 0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,102,196,.2),transparent);}
   .divider::after{content:"◆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--ink);padding:0 8px;color:var(--gold);font-size:12px;}
 
@@ -72,8 +64,9 @@
     color:var(--white);background:var(--pink);border:0;cursor:pointer;
     min-height:var(--tap);padding:16px 28px;
     box-shadow:0 12px 34px -14px rgba(255,102,196,.7);
-    transition:transform .25s ease, box-shadow .25s ease, background .2s ease;
+    transition:transform .25s ease, box-shadow .25s ease;
   }
+  .cta:hover{box-shadow:0 16px 40px -10px rgba(255,102,196,.8);}
   .cta:active{transform:translateY(1px);}
 
   header{position:relative;padding:64px var(--pad);text-align:center;background:var(--ink);border-bottom:1px solid rgba(232,195,126,.16);}
@@ -81,14 +74,13 @@
   header .back{position:relative;display:inline-block;font-family:var(--body);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin-bottom:18px;transition:opacity .25s;}
   header .back:hover{opacity:.72;}
 
-  header h1{position:relative;font-family:var(--display);text-transform:uppercase;line-height:.96;font-size:clamp(2.4rem,11vw,6.2rem);margin:0 auto 14px;max-width:none;color:var(--cream);}
+  header h1{position:relative;font-family:var(--display);text-transform:uppercase;line-height:.96;font-size:clamp(2.4rem,11vw,6.2rem);margin:0 auto 14px;color:var(--cream);}
   header p{position:relative;font-family:var(--body);font-size:.95rem;color:rgba(248,247,238,.78);margin:0 auto;max-width:60ch;}
 
   section{padding:56px var(--pad);}
   section h2{font-family:var(--display);text-transform:uppercase;line-height:.9;font-size:clamp(2rem,9vw,4.8rem);text-align:center;margin:0 0 46px;}
 
-  .why-give{background:rgba(255,102,196,.02);border:1px solid rgba(255,102,196,.15);border-radius:6px;max-width:760px;margin:0 auto 60px;padding:40px;transition:all .3s;}
-  .why-give:hover{border-color:rgba(255,102,196,.3);background:rgba(255,102,196,.04);}
+  .why-give{background:rgba(255,102,196,.02);border:1px solid rgba(255,102,196,.15);border-radius:6px;max-width:760px;margin:0 auto 60px;padding:40px;}
   .why-give h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 18px;}
   .why-give ul{list-style:none;margin:0;padding:0;display:grid;gap:16px;}
   .why-give li{font-size:.95rem;color:rgba(248,247,238,.82);display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;}
@@ -102,7 +94,10 @@
 
   .d-name{font-family:var(--body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--gold);margin-bottom:10px;}
   .d-amount{font-family:var(--display);text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,7vw,2.8rem);color:var(--cream);margin:0 0 8px;}
-  .d-desc{font-size:.92rem;color:rgba(248,247,238,.74);line-height:1.5;}
+  .d-desc{font-size:.92rem;color:rgba(248,247,238,.74);line-height:1.5;margin-bottom:16px;}
+
+  .d-cta{display:block;width:100%;padding:12px 20px;background:var(--pink);color:white;text-align:center;border:none;border-radius:4px;font-family:var(--body);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:all .25s;}
+  .d-cta:hover{background:var(--pink-deep);transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,102,196,.4);}
 
   .custom{background:rgba(232,195,126,.06);border:2px dashed rgba(232,195,126,.4);border-radius:6px;padding:38px 28px;text-align:center;max-width:600px;margin:0 auto;}
   .custom h3{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--gold);margin:0 0 16px;}
@@ -115,7 +110,6 @@
   footer .fnav a{color:rgba(248,247,238,.7);padding:8px 0;transition:color .2s;}
   footer .fnav a:hover{color:var(--pink);}
   footer p{font-size:.78rem;color:rgba(248,247,238,.45);margin:6px 0;}
-  footer a.link{color:var(--pink);}
 
   @media(min-width:700px){
     :root{--pad:32px;}
@@ -142,8 +136,8 @@
   <div class="why-give">
     <h3>🙏 The Season We're In</h3>
     <ul>
-      <li>Speaker travel, accommodation &amp; pastoral care across 10 cities</li>
-      <li>Venue hire, technical production &amp; livestream infrastructure</li>
+      <li>Speaker travel, accommodation & pastoral care across 10 cities</li>
+      <li>Venue hire, technical production & livestream infrastructure</li>
       <li>Reaching emerging leaders who otherwise wouldn't attend</li>
       <li>Keeping entry free — removing financial barriers to breakthrough</li>
     </ul>
@@ -152,29 +146,33 @@
 
 <section>
   <h2>Choose Your Gift</h2>
-  <div class="donation-grid" id="donationGrid">
-    <div class="dcard" onclick="donate('10')">
+  <div class="donation-grid">
+    <div class="dcard">
       <div class="d-name">Seed Gift</div>
       <div class="d-amount">£10</div>
       <div class="d-desc">Plant into this season</div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9dd2ec6f6c3e6b612c2" class="d-cta">Give £10</a>
     </div>
 
-    <div class="dcard" onclick="donate('50')">
+    <div class="dcard">
       <div class="d-name">Supporter Gift</div>
       <div class="d-amount">£50</div>
       <div class="d-desc">Enable a leader's breakthrough</div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e0796c4207be174d54" class="d-cta">Give £50</a>
     </div>
 
-    <div class="dcard featured" onclick="donate('100')">
+    <div class="dcard featured">
       <div class="d-name">Visionary Gift</div>
       <div class="d-amount">£100</div>
       <div class="d-desc">Sponsor core production</div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e3279cb7ad72557538" class="d-cta">Give £100</a>
     </div>
 
-    <div class="dcard" onclick="donate('1000')">
+    <div class="dcard">
       <div class="d-name">Legacy Gift</div>
       <div class="d-amount">£1000</div>
       <div class="d-desc">Sponsor an entire stop</div>
+      <a href="https://checkout.leadconnectorhq.com/checkout/jJlOnpzzHzzD2Jjo2TZv?priceId=6a99e9e6796c4207be174e81" class="d-cta">Give £1000</a>
     </div>
   </div>
 
@@ -200,23 +198,8 @@
     <a href="index.html">Register</a>
   </div>
   <p>&copy; Freedom To Function · All Rights Reserved.</p>
-  <p><a class="link" href="#">Contact</a> &nbsp;|&nbsp; <a class="link" href="#">Privacy</a></p>
+  <p><a href="#">Contact</a> &nbsp;|&nbsp; <a href="#">Privacy</a></p>
 </footer>
-
-<script>
-function donate(amount) {
-  // Store the amount in sessionStorage so it persists across redirect
-  sessionStorage.setItem('ftf_donation_amount', amount);
-  
-  // Tag to add based on amount
-  const tag = 'F2F Donor - £' + amount;
-  sessionStorage.setItem('ftf_donor_tag', tag);
-  
-  // Redirect to GHL giving funnel page
-  // The page will handle payment, tagging, and confirmation
-  window.location.href = 'https://app.leadconnectorhq.com/funnels/ePeNYo8jrJ0Dtj94og7C/mfzaZ470eph1aSImIpG4';
-}
-</script>
 
 </body>
 </html>
